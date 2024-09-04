@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/extra.css">
 </head>
 
 <body>
@@ -104,18 +105,18 @@
                 <div class="list-task__filter-type">
                     <h3 class="list-task__filter-title">Category</h3>
                     <div class="list-task__filter-buttons">
-                        <button type="button" class="list-task__filter-button">Code</button>
-                        <button type="button" class="list-task__filter-button">Design</button>
-                        <button type="button" class="list-task__filter-button list-task__filter-button--active">Meeting</button>
-                        <button type="button" class="list-task__filter-button">Tests</button>
+                        <button type="button" class="list-task__filter-button" onclick="HandlerClickCategory(this)">Code</button>
+                        <button type="button" class="list-task__filter-button" onclick="HandlerClickCategory(this)">Design</button>
+                        <button type="button" class="list-task__filter-button" onclick="HandlerClickCategory(this)">Meeting</button>
+                        <button type="button" class="list-task__filter-button" onclick="HandlerClickCategory(this)">Tests</button>
                     </div>
                 </div>
                 <div class="list-task__filter-type">
                     <h3 class="list-task__filter-title">State</h3>
                     <div class="list-task__filter-buttons">
-                        <button type="button" class="list-task__filter-button">Pending</button>
-                        <button type="button" class="list-task__filter-button">In progress</button>
-                        <button type="button" class="list-task__filter-button list-task__filter-button--active">Ready</button>
+                        <button type="button" class="list-task__filter-button" onclick="HandlerClickStatus(this)">Pending</button>
+                        <button type="button" class="list-task__filter-button" onclick="HandlerClickStatus(this)">In progress</button>
+                        <button type="button" class="list-task__filter-button" onclick="HandlerClickStatus(this)">Ready</button>
                     </div>
                 </div>
             </div>
