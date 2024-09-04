@@ -12,31 +12,31 @@ let CreateStatus = "";
 
 // Handlers
 const HandlerClickCategory = (e) => {
-  // Get category
-  CreateCategory = e.textContent;
+    // Get category
+    CreateCategory = e.textContent;
 
-  // Remove active class from other buttons
-  for (const button of e.parentNode.children)
-    button.classList.remove("list-task__filter-button--active");
+    // Remove active class from other buttons
+    for (const button of e.parentNode.children)
+        button.classList.remove("list-task__filter-button--active");
 
-  e.classList.add("list-task__filter-button--active");
+    e.classList.add("list-task__filter-button--active");
 };
 
 const HandlerClickStatus = (e) => {
-  // Get status
-  CreateStatus = e.textContent;
+    // Get status
+    CreateStatus = e.textContent;
 
-  // Remove active class from other buttons
-  for (const button of e.parentNode.children) {
-    button.classList.remove("list-task__filter-button--active");
-  }
+    // Remove active class from other buttons
+    for (const button of e.parentNode.children) {
+        button.classList.remove("list-task__filter-button--active");
+    }
 
-  e.classList.add("list-task__filter-button--active");
+    e.classList.add("list-task__filter-button--active");
 };
 
 // Html template for task item
 const taskItem = (data) =>
-  `<li class="list-task__item">
+    `<li class="list-task__item">
       <div class="list-task__item__conteiner">
         <div class="list-task__item__information">
           <div
@@ -55,45 +55,42 @@ const taskItem = (data) =>
     </li>`;
 
 // Click event
-listTaskButton.addEventListener("click", () => {
-  const width = window.innerWidth;
+document
+    .getElementById("button-new-task")
+    .addEventListener("click", function() {
+        document.querySelector(".list-task").classList.toggle("hidden");
+        document.querySelector(".new-task").classList.toggle("hidden");
+    });
 
-  // Show new task form
-  if (width <= 768) {
-    listTask.classList.toggle("d-none")
-  }
-  body.classList.toggle("d-flex");
-  newTask.classList.toggle("new-task__show");
-});
+document
+    .getElementById("button-back-list-task")
+    .addEventListener("click", function() {
+        document.querySelector(".new-task").classList.toggle("hidden");
+        document.querySelector(".list-task").classList.toggle("hidden");
+    });
 
 createTaskButton.addEventListener("click", () => {
-  const formData = {
-    task: document.querySelector("#task").value,
-    description: document.querySelector("#description").value,
-    dateStart: document.querySelector("#date-start").value,
-    dateEnd: document.querySelector("#date-end").value,
-    category: CreateCategory,
-    status: CreateStatus,
-  };
+    const formData = {
+        task: document.querySelector("#task").value,
+        description: document.querySelector("#description").value,
+        dateStart: document.querySelector("#date-start").value,
+        dateEnd: document.querySelector("#date-end").value,
+        category: CreateCategory,
+        status: CreateStatus,
+    };
 
-  // Validate
-  if (formData.category == "" || formData.status == "") {
-    alert("Datos invalidos");
-    return;
-  }
+    // Validate
+    if (formData.category == "" || formData.status == "") {
+        alert("Datos invalidos");
+        return;
+    }
 
-  // Render task
-  listTask.innerHTML += taskItem(formData);
+    // Render task
+    listTask.innerHTML += taskItem(formData);
 
-  // Save in localstorage
+    // Save in localstorage
 
-  // Reset global data
-  CreateCategory = "";
-  CreateStatus = "";
-});
-
-newTaskHeaderImg.addEventListener("click", () => {
-  // Show new task form
-  body.classList.remove("d-flex");
-  newTask.classList.remove("new-task__show");
+    // Reset global data
+    CreateCategory = "";
+    CreateStatus = "";
 });
