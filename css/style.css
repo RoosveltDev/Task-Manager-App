@@ -194,13 +194,11 @@ body {
     background-color: var(--color-primary);
     padding: 20px;
     border-radius: 15px;
-    color: var(--color-white);
 }
-
 .new-task__header {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    color: var(--color-light);
 }
 
 .new-task__header-img {
@@ -211,19 +209,19 @@ body {
 .new-task__header-title {
     font-size: 20px;
     font-weight: bold;
-    margin: 0;
+    
 }
-
 
 /*form*/
 
 .new-task__form {
     display: flex;
     flex-direction: column;
+    color: var(--color-light);
 }
 
 .new-task__form-information {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .new-task__form-title {
@@ -236,10 +234,11 @@ body {
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    border: none;
-    border-bottom: 2px solid var(--color-white);
+    border-color: transparent;
+    border-bottom: 2px solid var(--color-light);
     background-color: transparent;
-    color: var(--color-white);
+    color: var(--color-light);
+    /*falta acortar el borde derecho*/
 }
 
 .new-task__form-input::placeholder {
@@ -248,9 +247,49 @@ body {
 
 .new-task__form-input:focus {
     outline: none;
-    border-bottom-color: rgba(255, 255, 255, 0.9);
+    border-bottom-color:  var(--color-light);
 }
 
+/*date*/
+.new-task__form-date-buttons{
+    background-color: var(--color-light);
+    width: 100%;;
+} 
+.new-task__form-date {
+    display: flex;
+   
+}
+.new-task__form-information{
+    margin: 20px;
+}
+
+.new-task__form-title {
+    color: black; /* Cambia el color del texto según sea necesario */
+    font-size: 14px; /* Tamaño de fuente para las etiquetas */
+}
+
+.new-task__form-input-date {
+    width: 100%;
+    padding: 8px;
+    font-size: 18px; 
+    color: var(--color-primary); 
+    border-color: transparent;
+    border-bottom: 2px solid var(--color-primary);
+    background-color: transparent; 
+}
+
+.new-task__form-input-date::placeholder {
+    color: var(--color-dark-light); 
+}
+/*button create*/
+.list-task__create{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+    margin-top: 20px;
+
+}
 
 /* Tablet - 768px */
 
