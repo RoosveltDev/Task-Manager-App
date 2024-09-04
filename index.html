@@ -5,10 +5,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
+    <section class="list-task">
+
+        <div class="list-task__header">
+            <div class="list-task__information">
+                <h1 class="list-task__name">To do list</h1>
+                <p class="list-task__date">Oct, 2020</p>
+            </div>
+            <div class="list-task__new">
+                <button class="list-task__button" type="button">
+                    <img class="list-task__icon" src="./assets/icons/icon-add.svg" alt="Icono de aceptación">
+                    New task
+                </button>
+            </div>
+        </div>
+
+        <div class="list-task__filter">
+            <div class="list-task__filter-type">
+                <h3 class="list-task__filter-title">Category</h3>
+                <div class="list-task__filter-buttons">
+                    <button type="button" class="list-task__filter-button">Code</button>
+                    <button type="button" class="list-task__filter-button">Design</button>
+                    <button type="button" class="list-task__filter-button list-task__filter-button--active">Meeting</button>
+                    <button type="button" class="list-task__filter-button">Tests</button>
+                </div>
+            </div>
+            <div class="list-task__filter-type">
+                <h3 class="list-task__filter-title">State</h3>
+                <div class="list-task__filter-buttons">
+                    <button type="button" class="list-task__filter-button">Pending</button>
+                    <button type="button" class="list-task__filter-button">In progress</button>
+                    <button type="button" class="list-task__filter-button list-task__filter-button--active">Ready</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="list-task__tasks">
+            <h2 class="list-task__task-title">Tasks</h2>
+            <ul class="list-task__list" id="list-task">
+                <li class="list-task__item">
+                    <div class="list-task__item__conteiner">
+                        <div class="list-task__item__information">
+                            <div class="list-task__item__icon" style="background-color: var(--color-tertiary)"></div>
+                            <div class="list-task__item__details-text">
+                                <span class="list-task__item__details-text_tilte">Proyecto de Javascript</span>
+                                <span class="list-task__item__details-text_date">2 Days ago</span>
+                            </div>
+                        </div>
+                        <div class="list-task__item__more-options">⋮</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section class="new-task">
+        <div class="new-task__header">
+            <img class="new-task__header-img" src="./assets/icons/icon-back.svg" alt="Icono de retroceder">
+            <h3 class="new-task__header-title">Create a task</h3>
+        </div>
+
+        <div class="new-task__form">
+            <div class="new-task__form-information">
+                <label class="new-task__form-title" for="task">Task</label>
+                <input class="new-task__form-input" type="text" id="task" name="task" placeholder="Task">
+            </div>
+            <div class="new-task__form-information">
+                <label class="new-task__form-title" for="description">Description</label>
+                <input class="new-task__form-input" type="text" id="description" name="description" placeholder="Description">
+            </div>
+        
+        </div>
+
+        <div class="new-task__form-date-buttons">
+            <div class="new-task__form-date">
+                <div class="new-task__form-information">
+                    <label class="new-task__form-title" for="date-start">Start date</label>
+                    <input class="new-task__form-input-date" type="date" id="date-start" name="date-start" placeholder="__/__/____">
+                </div>
+                <div class="new-task__form-information">
+                    <label class="new-task__form-title" for="date-end">Final date</label>
+                    <input class="new-task__form-input-date" type="date" id="date-end" name="date-end" placeholder="__/__/____">
+                </div>
+            </div>
+
+        
+            <div class="list-task__filter">
+                <div class="list-task__filter-type">
+                    <h3 class="list-task__filter-title">Category</h3>
+                    <div class="list-task__filter-buttons">
+                        <button type="button" class="list-task__filter-button">Code</button>
+                        <button type="button" class="list-task__filter-button">Design</button>
+                        <button type="button" class="list-task__filter-button list-task__filter-button--active">Meeting</button>
+                        <button type="button" class="list-task__filter-button">Tests</button>
+                    </div>
+                </div>
+                <div class="list-task__filter-type">
+                    <h3 class="list-task__filter-title">State</h3>
+                    <div class="list-task__filter-buttons">
+                        <button type="button" class="list-task__filter-button">Pending</button>
+                        <button type="button" class="list-task__filter-button">In progress</button>
+                        <button type="button" class="list-task__filter-button list-task__filter-button--active">Ready</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="list-task__create">
+                <button class="list-task__button" type="button">
+                    Create task
+                </button>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="js/index.js"></script>
 </body>
 
 </html>
