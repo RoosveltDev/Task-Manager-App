@@ -1,0 +1,7 @@
+.d-flex {
+    display: flex;
+}
+
+button:hover {
+    cursor: pointer;
+}

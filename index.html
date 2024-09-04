@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/extra.css">
 </head>
 
 <body>
@@ -21,7 +22,7 @@
                 <p class="list-task__date">Oct, 2020</p>
             </div>
             <div class="list-task__new">
-                <button class="list-task__button" type="button">
+                <button id="button-new-task" class="list-task__button list-task__button--large" type="button">
                     <img class="list-task__icon" src="./assets/icons/icon-add.svg" alt="Icono de aceptación">
                     New task
                 </button>
@@ -32,18 +33,18 @@
             <div class="list-task__filter-type">
                 <h3 class="list-task__filter-title">Category</h3>
                 <div class="list-task__filter-buttons">
-                    <button type="button" class="list-task__filter-button">Code</button>
-                    <button type="button" class="list-task__filter-button">Design</button>
-                    <button type="button" class="list-task__filter-button list-task__filter-button--active">Meeting</button>
-                    <button type="button" class="list-task__filter-button">Tests</button>
+                    <button type="button" class="list-task__button">Code</button>
+                    <button type="button" class="list-task__button">Design</button>
+                    <button type="button" class="list-task__button list-task__button--active">Meeting</button>
+                    <button type="button" class="list-task__button">Tests</button>
                 </div>
             </div>
             <div class="list-task__filter-type">
                 <h3 class="list-task__filter-title">State</h3>
                 <div class="list-task__filter-buttons">
-                    <button type="button" class="list-task__filter-button">Pending</button>
-                    <button type="button" class="list-task__filter-button">In progress</button>
-                    <button type="button" class="list-task__filter-button list-task__filter-button--active">Ready</button>
+                    <button type="button" class="list-task__button">Pending</button>
+                    <button type="button" class="list-task__button">In progress</button>
+                    <button type="button" class="list-task__button list-task__button--active">Ready</button>
                 </div>
             </div>
         </div>
@@ -69,53 +70,60 @@
 
     </section>
 
-    <section class="new-task">
+    <section class="new-task hidden">
         <div class="new-task__header">
-            <img class="new-task__header-img" src="./assets/icons/icon-back.svg" alt="Icono de retroceder">
+            <img id="button-back-list-task" class="new-task__header-img" src="./assets/icons/icon-back.svg" alt="Icono de retroceder">
             <h3 class="new-task__header-title">Create a task</h3>
         </div>
 
         <div class="new-task__form">
             <div class="new-task__form-information">
-                <label class="new-task__form-title" for="task">Task</label>
-                <input class="new-task__form-input" type="text" id="task" name="task" placeholder="Task">
+                <label class="new-task__form-titleT" for="task">Task</label>
+                <input class="new-task__form-inputT" type="text" id="task" name="task" placeholder="Task">
             </div>
             <div class="new-task__form-information">
-                <label class="new-task__form-title" for="description">Description</label>
-                <input class="new-task__form-input" type="text" id="description" name="description" placeholder="Description">
+                <label class="new-task__form-titleT" for="description">Description</label>
+                <input class="new-task__form-inputT" type="text" id="description" name="description" placeholder="Description">
             </div>
+
         </div>
 
-        <div>
-            <div>
-                <div>
-                    <label for="date-start">Start date</label>
-                    <input type="date" id="date-start" name="date-start" placeholder="__/__/____">
+        <div class="new-task__form-date-buttons">
+            <div class="new-task__form-date">
+                <div class="new-task__form-information">
+                    <label class="new-task__form-title" for="date-start">Start date</label>
+                    <input class="new-task__form-input-date" type="date" id="date-start" name="date-start" placeholder="__/__/____">
                 </div>
-                <div>
-                    <label for="date-end">Final date</label>
-                    <input type="date" id="date-end" name="date-end" placeholder="__/__/____">
-                </div>
-            </div>
-            <div>
-                <h3>Category</h3>
-                <div>
-                    <button type="button">Code</button>
-                    <button type="button">Design</button>
-                    <button type="button">Meeting</button>
-                    <button type="button">Tests</button>
+                <div class="new-task__form-information">
+                    <label class="new-task__form-title" for="date-end">Final date</label>
+                    <input class="new-task__form-input-date" type="date" id="date-end" name="date-end" placeholder="__/__/____">
                 </div>
             </div>
-            <div>
-                <h3>State</h3>
-                <div>
-                    <button type="button">Pending</button>
-                    <button type="button">In progress</button>
-                    <button type="button">Ready</button>
+
+            <div class="list-task__filter">
+                <div class="list-task__filter-type">
+                    <h3 class="list-task__filter-title">Category</h3>
+                    <div class="list-task__filter-buttons">
+                        <button type="button" class="list-task__button list-task__button--secondary">Code</button>
+                        <button type="button" class="list-task__button list-task__button--secondary">Design</button>
+                        <button type="button" class="list-task__button list-task__button--active">Meeting</button>
+                        <button type="button" class="list-task__button list-task__button--secondary">Tests</button>
+                    </div>
+                </div>
+                <div class="list-task__filter-type">
+                    <h3 class="list-task__filter-title">State</h3>
+                    <div class="list-task__filter-buttons">
+                        <button type="button" class="list-task__button list-task__button--secondary">Pending</button>
+                        <button type="button" class="list-task__button list-task__button--secondary">In progress</button>
+                        <button type="button" class="list-task__button list-task__button--active">Ready</button>
+                    </div>
                 </div>
             </div>
-            <div>
-                <button type="button">Create Task</button>
+
+            <div class="list-task__create">
+                <button class="list-task__button list-task__button--large" type="button">
+                    Create task
+                </button>
             </div>
         </div>
     </section>
