@@ -14,7 +14,7 @@
 
 <body>
 
-    <section class="list-task">
+    <section class="list-task hidden">
 
         <div class="list-task__header">
             <div class="list-task__information">
@@ -70,25 +70,27 @@
 
     </section>
 
-    <section class="new-task hidden">
-        <div class="new-task__header">
-            <img id="button-back-list-task" class="new-task__header-img" src="./assets/icons/icon-back.svg" alt="Icono de retroceder">
-            <h3 class="new-task__header-title">Create a task</h3>
-        </div>
-
-        <div class="new-task__form">
-            <div class="new-task__form-information">
-                <label class="new-task__form-titleT" for="task">Task</label>
-                <input class="new-task__form-inputT" type="text" id="task" name="task" placeholder="Task">
-            </div>
-            <div class="new-task__form-information">
-                <label class="new-task__form-titleT" for="description">Description</label>
-                <input class="new-task__form-inputT" type="text" id="description" name="description" placeholder="Description">
+    <section class="new-task">
+        <div class="new-task__layout-header">
+            <div class="new-task__header">
+                <img id="button-back-list-task" class="new-task__header-img" src="./assets/icons/icon-back.svg" alt="Icono de retroceder">
+                <h3 class="new-task__header-title">Create a task</h3>
             </div>
 
+            <div class="new-task__form">
+                <div class="new-task__form-information">
+                    <label class="new-task__form-titleT" for="task">Task</label>
+                    <input class="new-task__form-inputT" type="text" id="task" name="task" placeholder="Task">
+                </div>
+                <div class="new-task__form-information">
+                    <label class="new-task__form-titleT" for="description">Description</label>
+                    <input class="new-task__form-inputT" type="text" id="description" name="description" placeholder="Description">
+                </div>
+
+            </div>
         </div>
 
-        <div class="new-task__form-date-buttons">
+        <div class="new-task__layout__content">
             <div class="new-task__form-date">
                 <div class="new-task__form-information">
                     <label class="new-task__form-title" for="date-start">Start date</label>
