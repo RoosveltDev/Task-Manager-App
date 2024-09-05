@@ -48,8 +48,6 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
 }
 
 .fullscreen {
@@ -356,6 +354,86 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
+}
+
+
+/* ESTILOS PARA EL MODAL */
+
+.modal {
+    display: none;
+    /* Oculto por defecto */
+    position: fixed;
+    /* Fijo en la pantalla */
+    z-index: 1;
+    z-index: 1;
+    /* Por encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* Habilita el scroll si es necesario */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro semi-transparente */
+}
+
+.modal__content {
+    background-color: var(--color-light);
+    margin: 15% auto;
+    /* Centrado vertical y horizontal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Ancho del modal */
+    max-width: 500px;
+    /* Ancho máximo del modal */
+    border-radius: 2rem;
+    /* Bordes redondeados */
+}
+
+.modal__close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal__close:hover,
+.modal__close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal__title {
+    margin-top: 0;
+}
+
+.modal__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__label {
+    margin-top: 10px;
+}
+
+.modal__input {
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.modal__button {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    margin-top: 3rem;
+    border: none;
+    border-radius: 2rem;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 

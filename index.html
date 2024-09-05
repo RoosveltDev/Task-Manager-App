@@ -13,8 +13,10 @@
 </head>
 
 <body>
+    <!-- HEADER -->
 
-    <section class="list-task hidden">
+    <!-- SECTION LIST TASK -->
+    <section class="list-task">
 
         <div class="list-task__header">
             <div class="list-task__information">
@@ -49,7 +51,6 @@
             </div>
         </div>
 
-
         <div class="list-task__tasks">
             <h2 class="list-task__task-title">Tasks</h2>
             <ul class="list-task__list" id="list-task">
@@ -70,7 +71,9 @@
 
     </section>
 
-    <section class="new-task">
+    <!-- SECTION NEW TASK -->
+
+    <!-- <section class="new-task hidden">
         <div class="new-task__layout-header">
             <div class="new-task__header">
                 <img id="button-back-list-task" class="new-task__header-img" src="./assets/icons/icon-back.svg" alt="Icono de retroceder">
@@ -108,7 +111,7 @@
                     <div class="list-task__filter-buttons">
                         <button type="button" class="list-task__button list-task__button--secondary">Code</button>
                         <button type="button" class="list-task__button list-task__button--secondary">Design</button>
-                        <button type="button" class="list-task__button list-task__button--active">Meeting</button>
+                        <button type="button" class="list-task__button list-task__button--secondary">Meeting</button>
                         <button type="button" class="list-task__button list-task__button--secondary">Tests</button>
                     </div>
                 </div>
@@ -117,7 +120,7 @@
                     <div class="list-task__filter-buttons">
                         <button type="button" class="list-task__button list-task__button--secondary">Pending</button>
                         <button type="button" class="list-task__button list-task__button--secondary">In progress</button>
-                        <button type="button" class="list-task__button list-task__button--active">Ready</button>
+                        <button type="button" class="list-task__button list-task__button--secondary">Ready</button>
                     </div>
                 </div>
             </div>
@@ -128,7 +131,38 @@
                 </button>
             </div>
         </div>
-    </section>
+    </section> -->
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <div class="modal__content">
+            <span class="modal__close">&times;</span>
+            <h2 class="modal__title">New Task</h2>
+            <form class="modal__form">
+                <label for="task-name" class="modal__label">Task Name:</label>
+                <input type="text" id="task-name" class="modal__input" required>
+
+                <label for="task-description" class="modal__label">Task Description:</label>
+                <input type="text" id="task-description" class="modal__input" required>
+
+                <label for="date-start" class="modal__label">Due Date:</label>
+                <input type="date" id="date-start" class="modal__input" required>
+
+                <label for="date-end" class="modal__label">Due Date:</label>
+                <input type="date" id="date-end" class="modal__input" required>
+
+                <label for="task-priority" class="modal__label">Priority:</label>
+                <select id="task-priority" class="modal__input" required>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+
+                <button type="submit" class="modal__button">Add Task</button>
+            </form>
+        </div>
+    </div>
+
     <script type="text/javascript" src="js/index.js"></script>
 </body>
 
