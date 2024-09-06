@@ -1,3 +1,10 @@
+const categoryColors = {
+  Code: "#284ab5",
+  Design: "#f8b862",
+  Meeting: "#884ec5",
+  Tests: "#f83567",
+};
+
 export function setTodayDate() {
   const today = new Date().toISOString().split("T")[0];
   const dateStart = document.getElementById("date-start");
@@ -26,11 +33,14 @@ export function loadTasksFromLocalStorage() {
 }
 
 export function taskItem(data) {
+  const color = categoryColors[data.category] || "#000000";
   return `
       <li class="list-task__item">
         <div class="list-task__item__conteiner">
           <div class="list-task__item__information">
-            <div class="list-task__item__icon" style="background-color: var(--color-tertiary)"></div>
+            <div class="list-task__item__icon" style="background-color: ${color};">
+                <img class="list-task__icon" src="./assets/icons/icon-to-do-list.svg" alt="Icono de tarea">
+            </div>
             <div class="list-task__item__details-text">
               <span class="list-task__item__details-text_tilte">${data.task}</span>
               <span class="list-task__item__details-text_date">${data.dateStart}</span>

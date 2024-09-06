@@ -198,16 +198,21 @@ body {
 
 .list-task__item__conteiner {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
 .list-task__item__information {
     display: flex;
+    width: 50%;
     align-items: center;
 }
 
 .list-task__item__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 50px;
     height: 50px;
     border-radius: 10px;
@@ -392,7 +397,7 @@ body {
 
 .modal__content {
     background-color: var(--color-light);
-    margin: 15% auto;
+    margin: 5% auto;
     /* Centrado vertical y horizontal */
     padding: 20px;
     border: 1px solid #888;
@@ -470,21 +475,7 @@ body {
     margin-top: 2rem;
 }
 
-
-/* 
-.modal__button {
-    background-color: var(--color-primary);
-    color: var(--color-light);
-    margin-top: 2rem;
-    border: none;
-    border-radius: 2rem;
-    padding: 1rem 2rem;
-    font-size: 16px;
-    cursor: pointer;
-} */
-
 .list-task__buttons {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -540,7 +531,6 @@ body {
         justify-content: center;
         align-items: center;
         gap: clamp(3rem, 6vw, 4rem);
-        /* background-color: var(--color-quaternary); */
     }
     .list-task__button--large {
         padding: 1rem 4rem;
