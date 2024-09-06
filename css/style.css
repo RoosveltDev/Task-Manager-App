@@ -84,7 +84,7 @@ body {
 }
 
 .list-task__button:hover {
-    background-color: #3c63d2;
+    background-color: var(--color-tertiary);
 }
 
 
@@ -180,6 +180,9 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
+    overflow-y: auto;
+    max-height: 55vh;
+    overflow-y: auto;
 }
 
 .list-task__item {
@@ -511,6 +514,21 @@ body {
     body {
         position: relative;
     }
+    .list-task__item__conteiner {
+        flex-direction: column;
+        align-items: flex-start;
+        /* Alinea el contenido a la izquierda en modo columna */
+    }
+    .icons {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: flex-start;
+        /* Alinea los íconos al inicio */
+        gap: 10px;
+        margin-top: 10px;
+        /* Separa los íconos de los botones */
+    }
 }
 
 
@@ -536,9 +554,6 @@ body {
 /* Small Desktop - 1024px */
 
 @media only screen and (min-width: 64rem) {
-    .list-task__filter {
-        /* background-color: var(--color-quinary); */
-    }
     .list-task__button--large {
         padding: 1rem 6rem;
     }
