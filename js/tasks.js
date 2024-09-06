@@ -142,7 +142,6 @@ function handleEditTask(event) {
   const taskId = event.target.closest(".list-task__edit").dataset.id;
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   const task = tasks.find((task) => task.id == taskId);
-  console.log(task);
   if (task) {
     let Category_Edit = task.category;
     let State_Edit = task.status;
