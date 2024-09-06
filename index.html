@@ -5,10 +5,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/extra.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
 
+    <!-- SECTION LIST TASK -->
+    <section class="list-task">
+
+        <div class="list-task__header">
+            <div class="list-task__information">
+                <h1 class="list-task__name">To do list</h1>
+                <p class="list-task__date">Oct, 2020</p>
+            </div>
+            <div class="list-task__new">
+                <button id="button-new-task" class="list-task__button list-task__button--large" type="button">
+                    <img class="list-task__icon" src="./assets/icons/icon-add.svg" alt="Icono de aceptación">
+                    New task
+                </button>
+            </div>
+        </div>
+
+        <div class="list-task__filter">
+            <div class="list-task__filter-type">
+                <h3 class="list-task__filter-title">Category</h3>
+                <div class="list-task__filter-buttons">
+                    <button type="button" class="list-task__button">Code</button>
+                    <button type="button" class="list-task__button">Design</button>
+                    <button type="button" class="list-task__button">Meeting</button>
+                    <button type="button" class="list-task__button">Tests</button>
+                </div>
+            </div>
+            <div class="list-task__filter-type">
+                <h3 class="list-task__filter-title">State</h3>
+                <div class="list-task__filter-buttons">
+                    <button type="button" class="list-task__button">Pending</button>
+                    <button type="button" class="list-task__button">In progress</button>
+                    <button type="button" class="list-task__button">Ready</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-task__tasks">
+            <h2 class="list-task__task-title">Tasks</h2>
+            <ul class="list-task__list" id="list-task">
+
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <div class="modal__content">
+            <span class="modal__close">&times;</span>
+            <h2 class="modal__title">New Task</h2>
+            <form class="modal__form">
+                <label for="task-name" class="modal__label">Task Name:</label>
+                <input type="text" id="task-name" class="modal__input" required>
+
+                <label for="task-description" class="modal__label">Task Description:</label>
+                <textarea id="task-description" class="modal__input" required></textarea>
+
+                <label for="date-start" class="modal__label">Start date:</label>
+                <input type="date" id="date-start" class="modal__input" required>
+
+                <label for="date-end" class="modal__label">Final date:</label>
+                <input type="date" id="date-end" class="modal__input" required>
+
+                <label class="modal__label">Category:</label>
+                <div class="modal__button-group" id="task-category">
+                    <button type="button" class="modal__button modal__button--category" data-value="Code">Code</button>
+                    <button type="button" class="modal__button modal__button--category" data-value="Design">Design</button>
+                    <button type="button" class="modal__button modal__button--category" data-value="Meeting">Meeting</button>
+                    <button type="button" class="modal__button modal__button--category" data-value="Tests">Tests</button>
+                </div>
+
+                <label class="modal__label">State:</label>
+                <div class="modal__button-group" id="task-state">
+                    <button type="button" class="modal__button modal__button--state" data-value="Pending">Pending</button>
+                    <button type="button" class="modal__button modal__button--state" data-value="In Progress">In progress</button>
+                    <button type="button" class="modal__button modal__button--state" data-value="Ready">Ready</button>
+                </div>
+
+                <button type="submit" id="task-button-submit" class="modal__button modal__button--submit">Add Task</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/index.js"></script>
 </body>
 
 </html>

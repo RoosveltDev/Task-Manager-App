@@ -1,41 +1,43 @@
-# Task-Manager-App
+# Task Manager
 
-# Project Structure
+This is a Task Manager project developed with pure HTML, CSS, and JavaScript.
 
-This web project follows best practices for organizing HTML, CSS, and other resources.
+## Project Structure
 
-## Example Folder Structure
+- **index.html**: Main HTML file.
+- **css/**: Folder containing all CSS files.
+  - **styles.css**: Main CSS stylesheet.
+- **js/**: Folder containing all JavaScript files.
+  - **index.js**: Main JavaScript logic file.
+- **assets/**: Folder for static resources like images, fonts, etc.
+  - **images/**: Subfolder for storing images.
+- **README.md**: Project documentation file.
 
-```plaintext
-project-root/
-│
-├── assets/
-│   ├── images/           # Project images
-│   ├── fonts/            # Custom fonts
-│   ├── icons/            # Icons in SVG or icon fonts
-│   └── media/            # Other media resources like videos
-│
-├── css/
-│   ├── main.css          # Main stylesheet
-│   ├── reset.css         # CSS to normalize styles across browsers
-│   ├── typography.css    # Styles for typography
-│   └── components/       # Specific styles for components (buttons, forms, etc.)
-│       └── buttons.css
-│
-├── js/
-│   ├── main.js           # Main JavaScript file
-│   ├── helpers.js        # Utility functions
-│   └── modules/          # Specific JS modules for site functionality
-│       └── slider.js
-│
-├── partials/             # Reusable HTML partials (header, footer, etc.)
-│   ├── header.html
-│   ├── footer.html
-│   └── navbar.html
-│
-├── index.html            # Main page of the site
-├── about.html            # About page
-├── contact.html          # Contact page
-│
-└── README.md             # Project information and setup instructions
-```
+## How to Run the Project
+
+1. Clone the repository.
+2. Open `index.html` in your browser.
+
+## Features
+
+- Add, edit, delete, and filter tasks.
+- Store tasks in `localStorage`.
+- User-friendly UX/UI.
+
+## Technologies Used
+
+- HTML
+- CSS
+- JavaScript
+
+## Semantic HTML
+
+This project uses semantic HTML to improve accessibility and SEO. Semantic HTML tags provide meaning to the web page content, making it easier for search engines and assistive technologies to understand the structure and content of the web page.
+
+## CSS Methodology
+
+This project uses the BEM (Block, Element, Modifier) methodology for naming CSS classes. BEM helps in writing modular and reusable CSS code.
+
+## Using localStorage
+
+The application uses `localStorage` to persist tasks between sessions. When a task is added, edited, or deleted, the changes are saved in the browser's `localStorage`. This allows the tasks to remain available even after the browser is closed and reopened.
