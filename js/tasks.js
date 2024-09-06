@@ -8,7 +8,7 @@ import {
 
 let CreateCategory = "";
 let CreateStatus = "";
-let editingTaskId = null; // Variable para almacenar el ID de la tarea que se está editando
+let editingTaskId = null;
 let selectedCategoryFilter = null;
 let selectedStateFilter = null;
 
@@ -46,7 +46,7 @@ export function handleFormSubmit(event) {
   event.preventDefault();
 
   const formData = {
-    id: editingTaskId || Date.now(), // Usar el ID existente si estamos editando
+    id: editingTaskId || Date.now(),
     task: capitalizeFirstLetter(document.querySelector("#task-name").value),
     description: document.querySelector("#task-description").value,
     dateStart: document.querySelector("#date-start").value,
@@ -183,7 +183,8 @@ export function initializeTaskFilters() {
         btn.classList.remove("list-task__button--active")
       );
       button.classList.add("list-task__button--active");
-      selectedCategoryFilter = button.textContent.trim();
+      selectedCategoryFilter =
+        button.textContent.trim() === "All" ? null : button.textContent.trim();
       filterTasks();
     });
   });
@@ -194,7 +195,8 @@ export function initializeTaskFilters() {
         btn.classList.remove("list-task__button--active")
       );
       button.classList.add("list-task__button--active");
-      selectedStateFilter = button.textContent.trim();
+      selectedStateFilter =
+        button.textContent.trim() === "All" ? null : button.textContent.trim();
       filterTasks();
     });
   });

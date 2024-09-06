@@ -7,6 +7,8 @@ export function initializeModal() {
 
   btn.onclick = function () {
     modal.style.display = "block";
+    const form = document.querySelector(".modal__form");
+    form.reset();
     setTodayDate();
   };
 
