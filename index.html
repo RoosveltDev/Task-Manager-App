@@ -71,7 +71,7 @@
                 <input type="text" id="task-name" class="modal__input" required>
 
                 <label for="task-description" class="modal__label">Task Description:</label>
-                <textarea id="task-description" class="modal__input" required></textarea>
+                <textarea id="task-description" class="modal__input" maxlength="200" required></textarea>
 
                 <label for="date-start" class="modal__label">Start date:</label>
                 <input type="date" id="date-start" class="modal__input" required>
@@ -98,6 +98,8 @@
             </form>
         </div>
     </div>
+
+    <div id="modal-edit" class="modal"></div>
 
     <script type="module" src="js/index.js"></script>
 </body>
