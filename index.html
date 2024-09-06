@@ -7,14 +7,16 @@
     <title>Task Manager App</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/extra.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
 
-    <section class="list-task hidden">
+    <!-- SECTION LIST TASK -->
+    <section class="list-task">
 
         <div class="list-task__header">
             <div class="list-task__information">
@@ -35,7 +37,7 @@
                 <div class="list-task__filter-buttons">
                     <button type="button" class="list-task__button">Code</button>
                     <button type="button" class="list-task__button">Design</button>
-                    <button type="button" class="list-task__button list-task__button--active">Meeting</button>
+                    <button type="button" class="list-task__button">Meeting</button>
                     <button type="button" class="list-task__button">Tests</button>
                 </div>
             </div>
@@ -44,92 +46,59 @@
                 <div class="list-task__filter-buttons">
                     <button type="button" class="list-task__button">Pending</button>
                     <button type="button" class="list-task__button">In progress</button>
-                    <button type="button" class="list-task__button list-task__button--active">Ready</button>
+                    <button type="button" class="list-task__button">Ready</button>
                 </div>
             </div>
         </div>
 
-
         <div class="list-task__tasks">
             <h2 class="list-task__task-title">Tasks</h2>
             <ul class="list-task__list" id="list-task">
-                <li class="list-task__item">
-                    <div class="list-task__item__conteiner">
-                        <div class="list-task__item__information">
-                            <div class="list-task__item__icon" style="background-color: var(--color-tertiary)"></div>
-                            <div class="list-task__item__details-text">
-                                <span class="list-task__item__details-text_tilte">Proyecto de Javascript</span>
-                                <span class="list-task__item__details-text_date">2 Days ago</span>
-                            </div>
-                        </div>
-                        <div class="list-task__item__more-options">⋮</div>
-                    </div>
-                </li>
+
             </ul>
         </div>
 
     </section>
 
-    <section class="new-task">
-        <div class="new-task__layout-header">
-            <div class="new-task__header">
-                <img id="button-back-list-task" class="new-task__header-img" src="./assets/icons/icon-back.svg" alt="Icono de retroceder">
-                <h3 class="new-task__header-title">Create a task</h3>
-            </div>
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <div class="modal__content">
+            <span class="modal__close">&times;</span>
+            <h2 class="modal__title">New Task</h2>
+            <form class="modal__form">
+                <label for="task-name" class="modal__label">Task Name:</label>
+                <input type="text" id="task-name" class="modal__input" required>
 
-            <div class="new-task__form">
-                <div class="new-task__form-information">
-                    <label class="new-task__form-titleT" for="task">Task</label>
-                    <input class="new-task__form-inputT" type="text" id="task" name="task" placeholder="Task">
-                </div>
-                <div class="new-task__form-information">
-                    <label class="new-task__form-titleT" for="description">Description</label>
-                    <input class="new-task__form-inputT" type="text" id="description" name="description" placeholder="Description">
+                <label for="task-description" class="modal__label">Task Description:</label>
+                <textarea id="task-description" class="modal__input" required></textarea>
+
+                <label for="date-start" class="modal__label">Start date:</label>
+                <input type="date" id="date-start" class="modal__input" required>
+
+                <label for="date-end" class="modal__label">Final date:</label>
+                <input type="date" id="date-end" class="modal__input" required>
+
+                <label class="modal__label">Category:</label>
+                <div class="modal__button-group" id="task-category">
+                    <button type="button" class="modal__button modal__button--category" data-value="Code">Code</button>
+                    <button type="button" class="modal__button modal__button--category" data-value="Design">Design</button>
+                    <button type="button" class="modal__button modal__button--category" data-value="Meeting">Meeting</button>
+                    <button type="button" class="modal__button modal__button--category" data-value="Tests">Tests</button>
                 </div>
 
-            </div>
+                <label class="modal__label">State:</label>
+                <div class="modal__button-group" id="task-state">
+                    <button type="button" class="modal__button modal__button--state" data-value="Pending">Pending</button>
+                    <button type="button" class="modal__button modal__button--state" data-value="In Progress">In progress</button>
+                    <button type="button" class="modal__button modal__button--state" data-value="Ready">Ready</button>
+                </div>
+
+                <button type="submit" id="task-button-submit" class="modal__button modal__button--submit">Add Task</button>
+            </form>
         </div>
+    </div>
 
-        <div class="new-task__layout__content">
-            <div class="new-task__form-date">
-                <div class="new-task__form-information">
-                    <label class="new-task__form-title" for="date-start">Start date</label>
-                    <input class="new-task__form-input-date" type="date" id="date-start" name="date-start" placeholder="__/__/____">
-                </div>
-                <div class="new-task__form-information">
-                    <label class="new-task__form-title" for="date-end">Final date</label>
-                    <input class="new-task__form-input-date" type="date" id="date-end" name="date-end" placeholder="__/__/____">
-                </div>
-            </div>
-
-            <div class="list-task__filter">
-                <div class="list-task__filter-type">
-                    <h3 class="list-task__filter-title">Category</h3>
-                    <div class="list-task__filter-buttons">
-                        <button type="button" class="list-task__button list-task__button--secondary">Code</button>
-                        <button type="button" class="list-task__button list-task__button--secondary">Design</button>
-                        <button type="button" class="list-task__button list-task__button--active">Meeting</button>
-                        <button type="button" class="list-task__button list-task__button--secondary">Tests</button>
-                    </div>
-                </div>
-                <div class="list-task__filter-type">
-                    <h3 class="list-task__filter-title">State</h3>
-                    <div class="list-task__filter-buttons">
-                        <button type="button" class="list-task__button list-task__button--secondary">Pending</button>
-                        <button type="button" class="list-task__button list-task__button--secondary">In progress</button>
-                        <button type="button" class="list-task__button list-task__button--active">Ready</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-task__create">
-                <button class="list-task__button list-task__button--large" type="button">
-                    Create task
-                </button>
-            </div>
-        </div>
-    </section>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="module" src="js/index.js"></script>
 </body>
 
 </html>
