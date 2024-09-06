@@ -44,6 +44,10 @@ export function taskItem(data) {
             <div class="list-task__item__details-text">
               <span class="list-task__item__details-text_tilte">${data.task}</span>
               <span class="list-task__item__details-text_date">${data.dateStart}</span>
+              <span class="list-task__item__details-text_date">${data.dateEnd}</span>
+            </div>
+            <div class="list-task__item__details-des">
+              <p class="list-task__item__details-text_date">${data.description}</p>
             </div>
           </div>
           <div class="list-task__buttons">
@@ -57,4 +61,74 @@ export function taskItem(data) {
         </div>
       </li>
     `;
+}
+
+export function taskItemEdit(data) {
+  return `
+          <div class="modal__content">
+              <span class="modal__close modal__close__edit">&times;</span>
+              <h2 class="modal__title">Edit Task</h2>
+              <form class="modal__form">
+                  <label for="task-name__edit" class="modal__label">Task Name:</label>
+                  <input type="text" id="task-name__edit" class="modal__input" value='${
+                    data.task
+                  }' required>
+  
+                  <label for="task-description__edit" class="modal__label">Task Description:</label>
+                  <textarea id="task-description__edit" class="modal__input" required>${
+                    data.description
+                  }</textarea>
+  
+                  <label for="date-start__edit" class="modal__label">Start date:</label>
+                  <input type="date" id="date-start__edit" class="modal__input" value='${
+                    data.dateStart
+                  }' required>
+  
+                  <label for="date-end__edit" class="modal__label">Final date:</label>
+                  <input type="date" id="date-end__edit" class="modal__input" value='${
+                    data.dateEnd
+                  }' required>
+  
+                  <label class="modal__label">Category:</label>
+                  <div class="modal__button-group" id="task-category">
+                      <button type="button" class="modal__button modal__button--category__edit ${
+                        data.category == "Code" ? "modal__button--active" : null
+                      }" data-value="Code">Code</button>
+                      <button type="button" class="modal__button modal__button--category__edit ${
+                        data.category == "Design"
+                          ? "modal__button--active"
+                          : null
+                      }" data-value="Design">Design</button>
+                      <button type="button" class="modal__button modal__button--category__edit ${
+                        data.category == "Meeting"
+                          ? "modal__button--active"
+                          : null
+                      }" data-value="Meeting">Meeting</button>
+                      <button type="button" class="modal__button modal__button--category__edit ${
+                        data.category == "Tests"
+                          ? "modal__button--active"
+                          : null
+                      }" data-value="Tests">Tests</button>
+                  </div>
+  
+                  <label class="modal__label">State:</label>
+                  <div class="modal__button-group" id="task-state">
+                      <button type="button" class="modal__button modal__button--state__edit ${
+                        data.status == "Pending"
+                          ? "modal__button--active"
+                          : null
+                      }" data-value="Pending">Pending</button>
+                      <button type="button" class="modal__button modal__button--state__edit ${
+                        data.status == "In Progress"
+                          ? "modal__button--active"
+                          : null
+                      }" data-value="In Progress">In progress</button>
+                      <button type="button" class="modal__button modal__button--state__edit ${
+                        data.status == "Ready" ? "modal__button--active" : null
+                      }" data-value="Ready">Ready</button>
+                  </div>
+  
+                  <button type="submit" id="task-button-submit__edit" class="modal__button modal__button--submit">Edit Task</button>
+              </form>
+          </div>`;
 }

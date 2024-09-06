@@ -4,6 +4,7 @@ import {
   taskItem,
   capitalizeFirstLetter,
   setTodayDate,
+  taskItemEdit,
 } from "./utils.js";
 
 let CreateCategory = "";
@@ -141,21 +142,96 @@ function handleEditTask(event) {
   const taskId = event.target.closest(".list-task__edit").dataset.id;
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   const task = tasks.find((task) => task.id == taskId);
-
+  console.log(task);
   if (task) {
-    document.querySelector("#task-name").value = task.task;
-    document.querySelector("#task-description").value = task.description;
-    document.querySelector("#date-start").value = task.dateStart;
-    document.querySelector("#date-end").value = task.dateEnd;
-    CreateCategory = task.category;
-    CreateStatus = task.status;
+    let Category_Edit = task.category;
+    let State_Edit = task.status;
 
     // Mostrar el modal
-    const modal = document.getElementById("modal");
-    modal.style.display = "block";
+    const modal_edit = document.querySelector("#modal-edit");
+    modal_edit.innerHTML = taskItemEdit(task);
+    modal_edit.style.display = "block";
 
-    // Establecer el ID de la tarea que se está editando
-    editingTaskId = taskId;
+    const span = document.getElementsByClassName("modal__close__edit")[0];
+
+    // Eventos del modal
+    span.onclick = function () {
+      modal_edit.style.display = "none";
+      modal_edit.firstChild.remove();
+    };
+
+    modal_edit.onclick = function (event) {
+      if (event.target == modal_edit) {
+        modal_edit.style.display = "none";
+        modal_edit.firstChild.remove();
+      }
+    };
+
+    const category_edit = document.querySelectorAll(
+      ".modal__button--category__edit"
+    );
+    category_edit.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        category_edit.forEach((c_btn) => {
+          c_btn.classList.remove("modal__button--active");
+        });
+        e.target.classList.add("modal__button--active");
+        Category_Edit = e.target.dataset.value;
+      });
+    });
+
+    const status_edit = document.querySelectorAll(
+      ".modal__button--state__edit"
+    );
+    status_edit.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        status_edit.forEach((c_btn) => {
+          c_btn.classList.remove("modal__button--active");
+        });
+        e.target.classList.add("modal__button--active");
+        State_Edit = e.target.dataset.value;
+      });
+    });
+
+    const taskButtonSubmit__edit = document.querySelector(
+      "#task-button-submit__edit"
+    );
+    taskButtonSubmit__edit.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const formData = {
+        id: Number(taskId), // Usar el ID existente si estamos editando
+        task: capitalizeFirstLetter(
+          document.querySelector("#task-name__edit").value
+        ),
+        description: document.querySelector("#task-description__edit").value,
+        dateStart: document.querySelector("#date-start__edit").value,
+        dateEnd: document.querySelector("#date-end__edit").value,
+        category: Category_Edit,
+        status: State_Edit,
+      };
+
+      const ind = tasks.findIndex((task) => task.id == taskId);
+      tasks[ind] = formData;
+
+      saveTasksToLocalStorage(tasks);
+
+      const listTask = document.querySelector("#list-task");
+      listTask.innerHTML = "";
+      tasks.forEach((task) => {
+        listTask.innerHTML += taskItem(task);
+      });
+
+      // Limpiar el formulario
+      const form = document.querySelector(".modal__form");
+      form.reset();
+      setTodayDate(); // Restablecer la fecha de hoy en los campos de fecha
+
+      modal_edit.style.display = "none";
+      modal_edit.firstChild.remove();
+
+      addTaskEventListeners();
+    });
   }
 }
 
