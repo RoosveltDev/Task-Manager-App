@@ -132,3 +132,8 @@ export function taskItemEdit(data) {
               </form>
           </div>`;
 }
+
+export function formatDateToMMMYYYY(date) {
+  const options = { year: "numeric", month: "short" };
+  return new Intl.DateTimeFormat("en-US", options).format(date);
+}
